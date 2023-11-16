@@ -9,7 +9,7 @@ for (curr_batch_no in unique(batch_no)) {
 }
 
 for (i in seq_along(fs)) {
-  from <- fs[i]
-  to <- paste0(rd7_dir, "batch_", batch_no[i], "/", from)
+  from <- paste0(rd7_dir, fs[i])
+  to <- paste0(rd7_dir, "batch_", batch_no[i], "/", fs[i])
   file.rename(from = from, to = to)
 }
