@@ -24,3 +24,5 @@ for (i in seq_along(data_urls)) {
   source <- data_urls[i]
   download.file(url = source, destfile = dest)
 }
+
+# the following file should be downloaded and placed into `raw_data_dir`: https://www.cell.com/cms/10.1016/j.cell.2022.05.013/attachment/5a940406-8883-4368-890e-e05f63eff4fd/mmc1.xlsx
