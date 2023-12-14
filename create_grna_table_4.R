@@ -1,5 +1,5 @@
 library(tidyverse)
-conflicts_prefer(dplyr::filter)
+conflicted::conflicts_prefer(dplyr::filter)
 repl_offsite <- paste0(.get_config_path("LOCAL_REPLOGLE_2022_DATA_DIR"))
 vector_info_table <- readxl::read_xlsx(path = paste0(repl_offsite, "raw/mmc1.xlsx"), sheet = 3,
                                        col_names = c("vector_id", "gene_name", "transcript", "grna_target", "grna_a", "target_sequence_a",
