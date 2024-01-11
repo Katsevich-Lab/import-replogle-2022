@@ -1,6 +1,10 @@
 library(tidyverse)
 conflicted::conflicts_prefer(dplyr::filter)
 repl_offsite <- paste0(.get_config_path("LOCAL_REPLOGLE_2022_DATA_DIR"))
+
+#############
+# rd7 dataset
+#############
 vector_info_table <- readxl::read_xlsx(path = paste0(repl_offsite, "raw/mmc1.xlsx"), sheet = 3,
                                        col_names = c("vector_id", "gene_name", "transcript", "grna_target", "grna_a", "target_sequence_a",
                                                      "grna_b", "target_sequence_b", "duplicated", "either_duplicated"), skip = 1) |>
@@ -37,3 +41,15 @@ grna_table_final <- rbind(x, grna_table_updated |> filter(grna_target == "unknow
 # save result
 saveRDS(object = grna_table_final,
         file = paste0(repl_offsite, "raw/rd7/grna_table.rds"))
+
+#############
+# rd7 dataset
+#############
+kd6_dir <- paste0(repl_offsite, "raw/kd6/K562_essential_other")
+vector_info_table <- readxl::read_xlsx(path = paste0(repl_offsite, "raw/mmc1.xlsx"), sheet = 1,
+                                       col_names = c("vector_id", "gene_name", "transcript", "grna_target", "grna_a", "target_sequence_a",
+                                                     "grna_b", "target_sequence_b", "duplicated", "either_duplicated"), skip = 1) |>
+  select(vector_id, grna_target, grna_a, grna_b)
+feature_table <- data.table::fread(input = paste0(kd6_dir, "/batch_1/KD6_1_essential_features.tsv.gz"),
+                                   col.names = c("grna_id", "name", "modality"))  |>
+  filter(modality == "CRISPR Guide Capture")
