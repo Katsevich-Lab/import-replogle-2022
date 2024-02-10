@@ -17,7 +17,7 @@ data_urls <- c(rd7 = "https://plus.figshare.com/ndownloader/files/36000888",
                kd6 = "https://plus.figshare.com/ndownloader/files/36000843",
                kd8 = "https://plus.figshare.com/ndownloader/files/36000572")
 
-# download the rd7 dataset only for now
+# download the data
 for (i in seq_along(data_urls)) {
   to_save_dir <- names(data_urls[i])
   dest <- paste0(raw_data_dir, to_save_dir, "/raw.mtx.tar.gz")
