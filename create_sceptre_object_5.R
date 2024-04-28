@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 library(sceptre)
 repl_offsite <- paste0(.get_config_path("LOCAL_REPLOGLE_2022_DATA_DIR"))
 # cellranger output directories
