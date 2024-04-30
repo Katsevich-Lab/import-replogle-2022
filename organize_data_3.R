@@ -18,4 +18,3 @@ organize_files_for_dir <- function(curr_dir) {
 
 organize_files_for_dir(rd7_dir)
 organize_files_for_dir(kd6_dir)
-
