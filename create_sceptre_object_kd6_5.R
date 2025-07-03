@@ -15,4 +15,3 @@ sceptre_object <- import_data_from_cellranger(directories = directories,
                                               use_ondisc = TRUE,
                                               directory_to_write = directory_to_write)
 write_ondisc_backed_sceptre_object(sceptre_object, directory_to_write)
-

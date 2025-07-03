@@ -12,7 +12,7 @@ for (dir in raw_data_dir_rep) {
 }
 
 # URL of data
-data_urls <- c(#rd7 = "https://plus.figshare.com/ndownloader/files/36000888",
+data_urls <- c(rd7 = "https://plus.figshare.com/ndownloader/files/36000888",
                #kd8_ultima = "https://plus.figshare.com/ndownloader/files/36000884",
                kd6 = "https://plus.figshare.com/ndownloader/files/36000843",
                kd8 = "https://plus.figshare.com/ndownloader/files/36000572")
