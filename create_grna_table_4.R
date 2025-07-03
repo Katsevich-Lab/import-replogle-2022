@@ -22,20 +22,7 @@ make_grna_target_df <- function(xl_fp, features_fp) {
   grna_table_updated$grna_target[na_grnas] <- "unknown"
   grna_table_updated$vector_id[na_grnas] <- "unknown"
 
-  x <- grna_table_updated |>
-    filter(grna_target != "unknown") |>
-    mutate(non_targeting = (grna_target == "non-targeting")) |>
-    group_by(non_targeting) |>
-    mutate(vector_id_2 = factor(vector_id,
-                                levels = unique(vector_id),
-                                labels = paste0(ifelse(non_targeting[1], "non-targeting_", "targeting_"),
-                                                "vector_", seq_along(unique(vector_id)))) |> as.character()) |>
-    arrange(vector_id_2) |>
-    ungroup() |>
-    mutate(non_targeting = NULL, vector_id = NULL) |>
-    rename("vector_id" = "vector_id_2")
-  grna_table_final <- rbind(x, grna_table_updated |> filter(grna_target == "unknown"))
-  return(grna_table_final)
+  return(grna_table_updated)
 }
 
 
